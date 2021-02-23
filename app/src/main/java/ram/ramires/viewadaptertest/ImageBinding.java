@@ -13,9 +13,11 @@ public class ImageBinding {
 
         int imageResource = view.getContext().getResources().getIdentifier( url,
                 "drawable", view.getContext().getOpPackageName());
+        try {
+            Drawable drawable=view.getContext().getResources().getDrawable(imageResource);
+            view.setImageDrawable(drawable);
 
-        Drawable drawable=view.getContext().getResources().getDrawable(imageResource);
-        view.setImageDrawable(drawable);
+        }catch (Exception exception){};
 
     }
 }

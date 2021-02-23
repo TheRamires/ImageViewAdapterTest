@@ -1,6 +1,7 @@
 package ram.ramires.viewadaptertest;
 
 import android.app.Application;
+import android.view.Display;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ViewModelTest extends AndroidViewModel {
+    private Model model=new Model();
     MutableLiveData<List<Entity>> liveData=new MutableLiveData<>();
 
     public ViewModelTest(@NonNull Application application) {
@@ -18,13 +20,6 @@ public class ViewModelTest extends AndroidViewModel {
     }
 
     public void getData(){
-        Entity entity=new Entity("Ferrari","ferrari");
-        Entity entity2=new Entity("McLaren","mclaren");
-
-        List<Entity> list=new ArrayList<>();
-        list.add(entity);
-        list.add(entity2);
-
-        liveData.setValue(list);
+        model.getDataFromApi(liveData);
     }
 }
